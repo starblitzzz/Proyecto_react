@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Field({type,placeholder}) {
+export default function Field({type,placeholder,clas}) {
   return (
-    <input type={type} placeholder={placeholder} />
+    <input className={clas} type={type} placeholder={placeholder} />
   )
 }

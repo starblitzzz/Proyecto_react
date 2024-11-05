@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Require from "./views/Require";
+import Productlist from "./views/Productslist"
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <Require></Require>
+      <Productlist/>
     </div>
   );
 }
