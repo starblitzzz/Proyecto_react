@@ -1,6 +1,14 @@
 .App {
   text-align: center;
-  min-height: 100%;
+  height: auto;
+  min-height: 90%;
+}
+
+.f-error{
+  color: red;
+  margin-top: 0.1px;
+  font-size: small;
+  align-self: flex-start;
 }
 
 /*purchase requirements page styles*/
@@ -251,7 +259,106 @@ border-style: none;
   width: 120px;
 }
 
-
-.App{
-  border: 2px solid red;
+.cont-cart{
+  border:2px solid blue;
+  height: auto;
+  justify-items: left;
 }
+
+.cont-header{
+  border: 2px solid brown;
+  background-color: brown;
+  width: 98.5%;
+  height: 70px;
+  justify-items: start;
+  padding-left: 20px;
+}
+
+.b-cart-return{
+  background-color: gray;
+color: white;
+border-style: none;
+  border-radius: 6px;
+  height: 30px;
+  width: 120px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.cont-table-summary{
+  border: 2px solid blue;
+  margin: 10px;
+  padding: 10px;
+  width: 95%;
+  height: auto;
+  justify-self: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cont-table{
+  border: 2px solid yellow;
+  flex: 3;
+
+}
+
+.cont-summary{
+  border: 2px solid orange;
+  height: 200px;
+  flex: 1;
+  padding: 5px;
+}
+
+.summary{
+ border: 2px solid gray;
+ background-color: lightgray;
+ height:100%;
+ justify-items: left;
+ padding-left:5px ;
+}
+
+.cont-pay{
+  border: 2px solid purple;
+  padding: 10px;
+  height: auto;
+  width: 30%;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.bs-cart{
+  display:flex;
+  flex-direction: row ;
+  gap: 10px;
+  justify-content: center;
+  border: 2px solid red;
+  padding: 5px;
+  margin: 5px;
+  width: 90%;
+}
+
+.b-pay{
+  background-color: green;
+color: white;
+border-style: none;
+  border-radius: 6px;
+  height: 30px;
+  width: 130px;
+  float: right;
+}
+
+.b-cancel-cart{
+  background-color: red;
+color: white;
+border-style: none;
+  border-radius: 6px;
+  height: 30px;
+  width: 120px;
+
+}
+
+
