@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Option({text, value}) {
+export default function Option({text, value,disable,selected}) {
   return (
-    <option value={value}>{text}</option>
+    <option selected={selected} disabled={disable} value={value}>{text}</option>
   )
 }

@@ -13,4 +13,4 @@ un contexto educativo. Con un enfoque centrado en la calidad, la usabilidad y la
 proyecto final representa la comprensión y la aplicación práctica de los principios
 fundamentales socializados en clase.
 
-Linea de negocio: libros y manuales 
+Linea de negocio: libros y manuales

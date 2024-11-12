@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Label({text}) {
+export default function Label({text,clas}) {
   return (
-    <label htmlFor="">{text}</label>
+    <label className={clas} htmlFor="">{text}</label>
   )
 }

@@ -1,7 +1,17 @@
-import React, { Children } from 'react'
+import React, { forwardRef } from 'react';
 
-export default function Selector({children}) {
+const Selector = forwardRef(({clas, children, value, name, onChange }, ref) => {
   return (
-    <select  name="" id="">{children}</select>
-  )
-}
+    <select
+    className={clas}
+      ref={ref}           
+      name={name}         
+      value={value}       
+      onChange={onChange} 
+    >
+      {children}          
+    </select>
+  );
+});
+
+export default Selector;
