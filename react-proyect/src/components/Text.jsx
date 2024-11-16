@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Text({text}) {
+export default function Text({text,value}) {
   return (
-    <p>{text}</p>
+    <p>{text} {value}</p>
   )
 }

@@ -1,3 +1,22 @@
-import { createContext, useContext } from "react";
+// FormDataContext.js
+import React, { createContext, useContext, useState } from 'react';
 
- export const  requireContext= createContext();
+const FormDataContext = createContext();
+
+export const useFormData = () => {
+  return useContext(FormDataContext);
+};
+
+export const FormDataProvider = ({ children }) => {
+  const [formData, setFormData] = useState(null);
+
+  const updateFormData = (data) => {
+    setFormData(data);
+  };
+
+  return (
+    <FormDataContext.Provider value={{ formData, updateFormData }}>
+      {children}
+    </FormDataContext.Provider>
+  );
+};

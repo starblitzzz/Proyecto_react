@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Title(props) {
+export default function Title({logo,clas,text}) {
   return (
-    <h1 className={props.clas}>{props.text}</h1>
+    <h1  className={clas}>{logo}      {text}</h1>
   )
 }

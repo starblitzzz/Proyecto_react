@@ -3,36 +3,39 @@ import './App.css';
 import Require from "./views/Require";
 import Productlist from "./views/Productslist"
 import Cart from './views/Cart';
+import {onSubmit} from "./views/Require"
+import {requireContext} from "./context/context"
+import { FormDataProvider } from './context/context';
+import {createBrowserRouter, RouterProvider} from "react-router-dom"
+import { CartProvider } from './context/CartContext';
 
 function App() {
 
-  function getRandomInRange(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+const routes= createBrowserRouter([
+  {
+    path:"/",
+    element: <Require/>, 
+    errorElement:<div>"oops hubo un problema"</div>
+  },
+  {
+    path:"/list",
+    element: <Productlist/>, 
+    errorElement:<div>"oops hubo un problema no se pudo cargar el listado de productos"</div>
+  },
+  {
+    path:"/cart",
+    element: <Cart/>, 
+    errorElement:<div>"oops hubo un problema no se pudo cargar el carrito de compras"</div>
   }
+])
   
-  fetch("./data.json")
-  .then(response => {
-    if (!response.ok) { 
-      throw new Error("Hubo un problema con la información");
-    }
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(response.json()); 
-      }, getRandomInRange(2000, 4000));
-    });
-  })
-    
-    
-  
-  .then((data)=>console.log(data))
-  .catch(error => {
-    console.error("Hubo un problema con la solicitud:", error);
-  });
 
   return (
-    <div className="App">
-      <Require/>
-    </div>
+    <CartProvider>
+    <FormDataProvider>
+    <RouterProvider router={routes}/>
+    </FormDataProvider>
+    </CartProvider>
   );
 }
 

@@ -10,14 +10,15 @@ import Image from "../components/Image"
 import libreria from "../images/libreria.jpg"
 import Text from "../components/Text"
 
-export default function Card() {
+export default function Card({img,name,stock,price,click}) {
   return (
     <div className="cont-product">
-      <Image clas="i-product"/>
-      <Text text="Nombre:"/>
-      <Text text="Stock:"/>
-      <Text text="Precio:"/>
-      <Button text="Ver detalle" clas="b-detail"/>
+      <Image clas="i-product" src={img}/>
+      <Text text="Nombre:" />
+      <Text text={name}/>
+      <Text text="Stock:"/><Text text={stock}/>
+      <Text text="Precio:"/><Text text={price}/>
+      <Button click={click} text="Ver detalle" clas="b-detail" />
     </div>
   )
 }

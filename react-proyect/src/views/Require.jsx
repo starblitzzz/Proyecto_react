@@ -11,6 +11,13 @@ import libreria from "../images/libreria.jpg";
 import App from "../App.css";
 import { useForm } from "react-hook-form";
 import Option from "../components/Option";
+import { useFormData } from '../context/context';
+import { FaAccessibleIcon, FaUser } from "react-icons/fa";
+import { FaMoneyBillWave } from "react-icons/fa";
+import { FaSearchLocation } from "react-icons/fa"
+import { FaShare } from "react-icons/fa";
+import { FaBookReader } from "react-icons/fa";
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Require() {
   const { register, reset, handleSubmit, formState: { errors }, getValues } = useForm({
@@ -22,18 +29,32 @@ export default function Require() {
     }
   });
 
+  const { updateFormData } = useFormData();
+
+  const [require, setRequire]= useState({
+    name: "",
+      budget: "",
+      address: '',
+      delivery: '0'
+  })
+
+  const navigate=useNavigate()
+
   // El handler de submit
   const onSubmit = (data) => {
     console.log("Formulario enviado:", data);
+    updateFormData(data);
+    navigate("/list")
   };
+
 
   return (
     <div className="require">
       <Container clas="cont-all">
         <Container clas="cont-f">
           <Form clas="Form" submit={handleSubmit(onSubmit)}>
-            <Title text="El Rincon Literario" />
-            <Label clas="label-require" text="Nombre del comprador" />
+            <Title text="El Rincon Literario" logo={<FaBookReader color='#5d2728'/>}/>
+            <Label logo={<FaUser color='#5d2728'/>} clas="label-require" text="Nombre del comprador" />
             <Field clas="field-require"
               name="name"
               placeholder="Ingrese un nombre"
@@ -44,7 +65,7 @@ export default function Require() {
             {errors.name?.type === "maxLength" && <span className="f-error">Este campo no puede superar los 20 caracteres</span>}
             {errors.name?.type === "minLength" && <span className="f-error">Este campo no puede tener menos de 10 caracteres</span>}
 
-            <Label clas="label-require" text="Presupuesto" />
+            <Label logo={<FaMoneyBillWave color='#5d2728'/> } clas="label-require" text="Presupuesto" />
             <Field clas="field-require"
               name="budget"
               placeholder="Ingrese un valor"
@@ -54,7 +75,7 @@ export default function Require() {
             {errors.budget?.type === "required" && <span className="f-error">Este campo es obligatorio</span>}
             {errors.budget?.type === "min" && <span className="f-error">El valor mínimo permitido es $10000</span>}
 
-            <Label clas="label-require" text="Direccion" />
+            <Label logo={<FaSearchLocation color='#5d2728'/>} clas="label-require" text="Direccion" />
             <Field clas="field-require"
               name="address"
               placeholder="Ingrese el lugar de destino"
@@ -63,7 +84,7 @@ export default function Require() {
             />
             {errors.address?.type === "required" && <span className="f-error">Este campo es obligatorio</span>}
 
-            <Label clas="label-require" text="Tipo de entrega" />
+            <Label logo={<FaShare color='5d2728'/>} clas="label-require" text="Tipo de entrega" />
             <Selector clas="select-require" disable="Escoja una opcion" {...register("delivery", {
               required: true,
             })}>

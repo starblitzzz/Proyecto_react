@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-export default function Container({children,clas}) {
+// Asegúrate de que Container acepte refs
+const Container = React.forwardRef(({ clas, children }, ref) => {
   return (
-    <div className={clas}>
+    <div className={clas} ref={ref}>
       {children}
     </div>
-  )
-}
+  );
+});
+
+export default Container;

@@ -4,6 +4,9 @@
   min-height: 90%;
 }
 
+
+
+/*purchase requirements page styles*/
 .f-error{
   color: red;
   margin-top: 0.1px;
@@ -11,7 +14,6 @@
   align-self: flex-start;
 }
 
-/*purchase requirements page styles*/
 
 .Form{
   /* border: 2px solid blue; */
@@ -70,6 +72,12 @@
   border-style: none;
   /* border-radius: 6px; */
 }
+.b-buy:hover{
+  background-color: white;
+  color: brown;
+  font-size:medium;
+  border-style:dotted;
+}
 .b-clean{
   height: 30px;
   width: 100%;
@@ -78,48 +86,55 @@
   border-style: none;
   /* border-radius: 6px; */
 }
+.b-clean:hover{
+  background-color: white;
+  color: green;
+  font-size:medium;
+  border-style:dotted;
+}
 
 .label-require{
   align-self: flex-start;
+  color: #5d2728;
 }
 
 .field-require{
   border: 2px solid #5d2728;
   color: #5d2728;
   height: 30px;
+  font-size: medium;
 }
 
 .select-require{
   border: 2px solid #5d2728;
   color: white;
   background-color: #947151;
+  font-size: medium;
   height: 30px;
 }
 
 /* products list page styles  */
-.product-cont-all{
-  border: 2px solid black;
-  height: auto;
-  width: auto;
+.product-cont-all {
+  background-color: #ba9f85;
+  height: 100vh; /* O una altura fija para que el scroll funcione correctamente */
+  width: 100%;
   display: flex;
+  flex-direction: row;
 }
 
-.cont-filter-list{
-  height: auto;
- border: 2px solid blue;
- margin: 0px;
- width: 79%;
+.cont-filter-list {
+  height: 100%; /* Asegura que ocupe toda la altura disponible */
+  margin: 0;
+  width: 79%; /* Lo dejas como estaba */
 }
 
-.cont-nav{
-  border: 2px solid brown;
-  background-color: brown;
+.cont-nav {
+  background-color: #5d2728;
   height: 50px;
   padding-bottom: 8px;
-  margin: 0px;
+  margin: 0;
   display: flex;
-  align-content: center;
-  box-sizing: content-box; 
+  align-items: center;
   gap: 5px;
 }
 
@@ -148,35 +163,33 @@ border-style: none;
   width: 120px;
 }
 
-.cont-detail{
-  border: 2px solid orange;
+.cont-detail {
+  background-color: #8c463f;
   flex: 0.8;
   padding: 5px;
-  margin:0px ;
-  height: 682px;
-  width: 20%;
+  margin: 0;
+  height: 100%;  /* Cambié a 100% para que se ajuste al contenedor principal */
   position: fixed;
-  top: 0px;  
-  right: 1px; 
+  top: 0;
+  right: 1px;
 }
 
-.cont-filter{
-  border: 2px solid purple;
+.cont-filter {
   height: 70px;
   padding: 5px;
-  align-content: center;
+  align-items: center;
 }
 
-.filters{
+.filters {
   align-items: center;
-  display:flex;
-  background-color: gray;
+  display: flex;
+  background-color: #8c463f;
   flex-direction: row;
   gap: 2px;
- border-radius: 6px;
- padding: 5px;
- height: 60%;
- width: 70%;
+  border-radius: 6px;
+  padding: 5px;
+  height: 60%;
+  width: 70%;
 }
 
 .b-clean-filters{
@@ -212,7 +225,6 @@ border-style: none;
   display:flex;
   flex-direction: column;
   gap: 0.1px;
-  border: 2px solid blue;
   height: auto;
 }
 
@@ -235,36 +247,38 @@ border-style: none;
   height: 200px;
 }
 
-.cont-list{
-  display:flex;
+.cont-list {
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: 15px;
-  border: 2px solid gray;
   margin: 2px;
   padding-top: 10px;
   padding-bottom: 20px;
-  height: auto;
-  width: auto;
+  max-height: 500px;  /* Altura fija para activar el scroll */
+  overflow-y: auto;   /* Asegura que haya scroll vertical */
+  width: 100%;
 }
 
+
 .cont-product{
-  border: 2px solid black;
+  background-color: #947151;
   height: 350px;
   width: 250px;
   display: flex;
+  gap: 1px;
   flex-direction: column;
   align-items: flex-start;
-  padding-bottom: 10px;
-  padding-left: 5px;
+  padding: 1px;
+  margin: 1px;
 }
 
 .i-product{
   align-self: center;
   border: 2px solid red;
   width: 90%;
-  height: 200px;
+  height: 20%;
 }
 
 .b-detail{
