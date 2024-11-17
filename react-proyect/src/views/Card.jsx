@@ -14,11 +14,13 @@ export default function Card({img,name,stock,price,click}) {
   return (
     <div className="cont-product">
       <Image clas="i-product" src={img}/>
+      <Container clas="d-product">
       <Text text="Nombre:" />
       <Text text={name}/>
       <Text text="Stock:"/><Text text={stock}/>
       <Text text="Precio:"/><Text text={price}/>
       <Button click={click} text="Ver detalle" clas="b-detail" />
+      </Container>
     </div>
   )
 }

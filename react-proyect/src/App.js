@@ -8,8 +8,10 @@ import {requireContext} from "./context/context"
 import { FormDataProvider } from './context/context';
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import { CartProvider } from './context/CartContext';
+import { useForm, FormProvider } from 'react-hook-form';
 
 function App() {
+  const methods = useForm();
 
 const routes= createBrowserRouter([
   {
@@ -31,11 +33,11 @@ const routes= createBrowserRouter([
   
 
   return (
+   <FormDataProvider>
     <CartProvider>
-    <FormDataProvider>
     <RouterProvider router={routes}/>
-    </FormDataProvider>
     </CartProvider>
+    </FormDataProvider>
   );
 }
 

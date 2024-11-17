@@ -9,7 +9,7 @@ import Container from "../components/Container";
 import Image from "../components/Image";
 import libreria from "../images/libreria.jpg";
 import App from "../App.css";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import Option from "../components/Option";
 import { useFormData } from '../context/context';
 import { FaAccessibleIcon, FaUser } from "react-icons/fa";
@@ -20,7 +20,7 @@ import { FaBookReader } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Require() {
-  const { register, reset, handleSubmit, formState: { errors }, getValues } = useForm({
+  const methods = useForm({
     defaultValues: {
       name: '',
       budget: "",
@@ -29,7 +29,8 @@ export default function Require() {
     }
   });
 
-  const { updateFormData } = useFormData();
+  const { register, reset, handleSubmit, formState: { errors }, getValues } = methods;
+
 
   const [require, setRequire]= useState({
     name: "",
@@ -40,10 +41,11 @@ export default function Require() {
 
   const navigate=useNavigate()
 
-  // El handler de submit
+  const { updateFormData } = useFormData(); 
+
   const onSubmit = (data) => {
     console.log("Formulario enviado:", data);
-    updateFormData(data);
+    updateFormData(data); 
     navigate("/list")
   };
 
@@ -52,6 +54,7 @@ export default function Require() {
     <div className="require">
       <Container clas="cont-all">
         <Container clas="cont-f">
+        <FormProvider {...methods}>
           <Form clas="Form" submit={handleSubmit(onSubmit)}>
             <Title text="El Rincon Literario" logo={<FaBookReader color='#5d2728'/>}/>
             <Label logo={<FaUser color='#5d2728'/>} clas="label-require" text="Nombre del comprador" />
@@ -88,7 +91,7 @@ export default function Require() {
             <Selector clas="select-require" disable="Escoja una opcion" {...register("delivery", {
               required: true,
             })}>
-              <Option value="0" text="Selecciona un tipo de entrega" />
+              <Option value="" text="Selecciona un tipo de entrega" />
               <Option value="1" text="con domicilio" />
               <Option value="2" text="sin domicilio" />
             </Selector>
@@ -97,6 +100,7 @@ export default function Require() {
             <Button text="Iniciar compra" clas="b-buy" type="submit" />
             <Button text="Limpiar campos" clas="b-clean" type="button" click={() => reset()} />
           </Form>
+          </FormProvider>
         </Container>
 
         <Container clas="cont-image">

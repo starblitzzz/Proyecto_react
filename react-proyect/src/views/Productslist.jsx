@@ -8,7 +8,7 @@ import Container from "../components/Container"
 import Image from "../components/Image"
 import Text from "../components/Text"
 import Card from '../views/Card'
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import libreria from "../images/libreria.jpg";
 import useInfiniteScroll from 'react-infinite-scroll-hook';
 import imagen1 from "../images/imagen1.webp"
@@ -28,7 +28,7 @@ import Cart from './Cart'
 
 export default function Productslist() {
  
-const { addToCart,cart } = useCart();  
+const { addToCart,cart,clearCart } = useCart();  
 const [products,setProducts]=useState([
   {
     id:1,
@@ -65,7 +65,7 @@ const [products,setProducts]=useState([
     nombre: "La sombra del viento",
     stock: 20,
     precio: 65000,
-    imagen: "url_de_imagen_4.jpg",
+    imagen: imagen4,
     autor: "Carlos Ruiz Zafón",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -75,7 +75,7 @@ const [products,setProducts]=useState([
     nombre: "1984",
     stock: 30,
     precio: 60000,
-    imagen: "url_de_imagen_5.jpg",
+    imagen: imagen5,
     autor: "George Orwell",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -85,7 +85,7 @@ const [products,setProducts]=useState([
     nombre: "El túnel",
     stock: 22,
     precio: 70000,
-    imagen: "url_de_imagen_6.jpg",
+    imagen: imagen6,
     autor: "Ernesto Sabato",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -95,7 +95,7 @@ const [products,setProducts]=useState([
     nombre: "Rayuela",
     stock: 18,
     precio: 72000,
-    imagen: "url_de_imagen_7.jpg",
+    imagen: imagen7,
     autor: "Julio Cortázar",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -105,7 +105,7 @@ const [products,setProducts]=useState([
     nombre: "Los detectives salvajes",
     stock: 12,
     precio: 82000,
-    imagen: "url_de_imagen_8.jpg",
+    imagen: imagen8,
     autor: "Roberto Bolaño",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -115,7 +115,7 @@ const [products,setProducts]=useState([
     nombre: "El aleph",
     stock: 8,
     precio: 75000,
-    imagen: "url_de_imagen_9.jpg",
+    imagen: imagen9,
     autor: "Jorge Luis Borges",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -125,7 +125,7 @@ const [products,setProducts]=useState([
     nombre: "Ficciones",
     stock: 14,
     precio: 78000,
-    imagen: "url_de_imagen_10.jpg",
+    imagen: imagen10,
     autor: "Jorge Luis Borges",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -135,7 +135,7 @@ const [products,setProducts]=useState([
     nombre: "Crónica de una muerte anunciada",
     stock: 16,
     precio: 68000,
-    imagen: "url_de_imagen_11.jpg",
+    imagen: imagen1,
     autor: "Gabriel García Márquez",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -145,7 +145,7 @@ const [products,setProducts]=useState([
     nombre: "Los miserables",
     stock: 5,
     precio: 90000,
-    imagen: "url_de_imagen_12.jpg",
+    imagen: imagen2,
     autor: "Victor Hugo",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -155,7 +155,7 @@ const [products,setProducts]=useState([
     nombre: "Orgullo y prejuicio",
     stock: 9,
     precio: 62000,
-    imagen: "url_de_imagen_13.jpg",
+    imagen: imagen3,
     autor: "Jane Austen",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -165,7 +165,7 @@ const [products,setProducts]=useState([
     nombre: "Don Quijote de la Mancha",
     stock: 7,
     precio: 95000,
-    imagen: "url_de_imagen_14.jpg",
+    imagen: imagen4,
     autor: "Miguel de Cervantes",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -175,7 +175,7 @@ const [products,setProducts]=useState([
     nombre: "La casa de los espíritus",
     stock: 13,
     precio: 74000,
-    imagen: "url_de_imagen_15.jpg",
+    imagen: imagen5,
     autor: "Isabel Allende",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -185,7 +185,7 @@ const [products,setProducts]=useState([
     nombre: "El principito",
     stock: 30,
     precio: 50000,
-    imagen: "url_de_imagen_16.jpg",
+    imagen: imagen6,
     autor: "Antoine de Saint-Exupéry",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -195,7 +195,7 @@ const [products,setProducts]=useState([
     nombre: "Moby Dick",
     stock: 11,
     precio: 82000,
-    imagen: "url_de_imagen_17.jpg",
+    imagen: imagen7,
     autor: "Herman Melville",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -205,7 +205,7 @@ const [products,setProducts]=useState([
     nombre: "El gran Gatsby",
     stock: 17,
     precio: 55000,
-    imagen: "url_de_imagen_18.jpg",
+    imagen: imagen8,
     autor: "F. Scott Fitzgerald",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -215,7 +215,7 @@ const [products,setProducts]=useState([
     nombre: "Los cuatro acuerdos",
     stock: 26,
     precio: 40000,
-    imagen: "url_de_imagen_19.jpg",
+    imagen: imagen9,
     autor: "Don Miguel Ruiz",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -225,7 +225,7 @@ const [products,setProducts]=useState([
     nombre: "El arte de la guerra",
     stock: 24,
     precio: 30000,
-    imagen: "url_de_imagen_20.jpg",
+    imagen: imagen10,
     autor: "Sun Tzu",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -235,7 +235,7 @@ const [products,setProducts]=useState([
     nombre: "Sapiens: De animales a dioses",
     stock: 19,
     precio: 85000,
-    imagen: "url_de_imagen_21.jpg",
+    imagen: imagen1,
     autor: "Yuval Noah Harari",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -245,7 +245,7 @@ const [products,setProducts]=useState([
     nombre: "Cien años de soledad",
     stock: 10,
     precio: 80000,
-    imagen: "url_de_imagen_22.jpg",
+    imagen: imagen2,
     autor: "Gabriel García Márquez",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -255,7 +255,7 @@ const [products,setProducts]=useState([
     nombre: "Mujer que sabe",
     stock: 12,
     precio: 45000,
-    imagen: "url_de_imagen_23.jpg",
+    imagen: imagen3,
     autor: "Miriam Fernández",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -265,7 +265,7 @@ const [products,setProducts]=useState([
     nombre: "El monje que vendió su Ferrari",
     stock: 28,
     precio: 47000,
-    imagen: "url_de_imagen_24.jpg",
+    imagen: imagen4,
     autor: "Robin Sharma",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -275,7 +275,7 @@ const [products,setProducts]=useState([
     nombre: "El caballero de la armadura oxidada",
     stock: 16,
     precio: 32000,
-    imagen: "url_de_imagen_25.jpg",
+    imagen: imagen5,
     autor: "Robert Fisher",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -285,7 +285,7 @@ const [products,setProducts]=useState([
     nombre: "Cazadores de sombras: Ciudad de hueso",
     stock: 22,
     precio: 55000,
-    imagen: "url_de_imagen_26.jpg",
+    imagen: imagen6,
     autor: "Cassandra Clare",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -295,7 +295,7 @@ const [products,setProducts]=useState([
     nombre: "Harry Potter y la piedra filosofal",
     stock: 18,
     precio: 60000,
-    imagen: "url_de_imagen_27.jpg",
+    imagen: imagen7,
     autor: "J.K. Rowling",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -305,7 +305,7 @@ const [products,setProducts]=useState([
     nombre: "El hobbit",
     stock: 15,
     precio: 58000,
-    imagen: "url_de_imagen_28.jpg",
+    imagen: imagen8,
     autor: "J.R.R. Tolkien",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -315,7 +315,7 @@ const [products,setProducts]=useState([
     nombre: "La chica del tren",
     stock: 9,
     precio: 75000,
-    imagen: "url_de_imagen_29.jpg",
+    imagen: imagen9,
     autor: "Paula Hawkins",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -325,7 +325,7 @@ const [products,setProducts]=useState([
     nombre: "El código Da Vinci",
     stock: 20,
     precio: 72000,
-    imagen: "url_de_imagen_30.jpg",
+    imagen: imagen10,
     autor: "Dan Brown",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -335,7 +335,7 @@ const [products,setProducts]=useState([
     nombre: "El hombre en busca de sentido",
     stock: 14,
     precio: 45000,
-    imagen: "url_de_imagen_31.jpg",
+    imagen: imagen1,
     autor: "Viktor Frankl",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -345,7 +345,7 @@ const [products,setProducts]=useState([
     nombre: "La guerra de los mundos",
     stock: 11,
     precio: 62000,
-    imagen: "url_de_imagen_32.jpg",
+    imagen: imagen2,
     autor: "H.G. Wells",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -355,7 +355,7 @@ const [products,setProducts]=useState([
     nombre: "El guardián entre el centeno",
     stock: 8,
     precio: 54000,
-    imagen: "url_de_imagen_33.jpg",
+    imagen: imagen3,
     autor: "J.D. Salinger",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -365,7 +365,7 @@ const [products,setProducts]=useState([
     nombre: "Pájaro en la mano",
     stock: 17,
     precio: 68000,
-    imagen: "url_de_imagen_34.jpg",
+    imagen: imagen4,
     autor: "Julio Cortázar",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -375,7 +375,7 @@ const [products,setProducts]=useState([
     nombre: "El juego del ángel",
     stock: 13,
     precio: 70000,
-    imagen: "url_de_imagen_35.jpg",
+    imagen: imagen5,
     autor: "Carlos Ruiz Zafón",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -385,7 +385,7 @@ const [products,setProducts]=useState([
     nombre: "A sangre fría",
     stock: 6,
     precio: 85000,
-    imagen: "url_de_imagen_36.jpg",
+    imagen: imagen6,
     autor: "Truman Capote",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -395,7 +395,7 @@ const [products,setProducts]=useState([
     nombre: "Crónicas de una muerte anunciada",
     stock: 19,
     precio: 75000,
-    imagen: "url_de_imagen_37.jpg",
+    imagen: imagen7,
     autor: "Gabriel García Márquez",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -405,7 +405,7 @@ const [products,setProducts]=useState([
     nombre: "Los secretos de la mente millonaria",
     stock: 29,
     precio: 60000,
-    imagen: "url_de_imagen_38.jpg",
+    imagen: imagen8,
     autor: "T. Harv Eker",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -415,7 +415,7 @@ const [products,setProducts]=useState([
     nombre: "¿Quién se ha llevado mi queso?",
     stock: 33,
     precio: 39000,
-    imagen: "url_de_imagen_39.jpg",
+    imagen: imagen9,
     autor: "Spencer Johnson",
     idioma: "español",
     encuadernacion: "tapa dura"
@@ -425,7 +425,7 @@ const [products,setProducts]=useState([
     nombre: "El hombre más rico de Babilonia",
     stock: 21,
     precio: 43000,
-    imagen: "url_de_imagen_40.jpg",
+    imagen: imagen10,
     autor: "George S. Clason",
     idioma: "español",
     encuadernacion: "tapa blanda"
@@ -450,6 +450,8 @@ const [filter, setFilter] = useState('');
 const [bindingFilter, setBindingFilter] = useState('');
 const [nameFilter, setNameFilter] = useState('');
 const [filteredProducts, setFilteredProducts] = useState(products);
+const [cartEnabled, setCartEnabled] = useState(false);
+
 
 const clearFilters = () => {
   setNameFilter("");
@@ -484,8 +486,13 @@ const applyFilters = () => {
  console.log(bindingFilter)
   
 };
+const navigate=useNavigate()
 
-  
+  const returnRequire=()=>{
+   clearCart()
+   navigate("/")
+   console.log(cart)
+  }
   
 
 const renderProducts = () => {
@@ -502,20 +509,18 @@ const renderProducts = () => {
 
   };
   const handleClick = (product) => {
-    setDetail(prevDetail => ({
-      ...prevDetail,
-      id:product.id,
+    setDetail({
+      id: product.id,
       name: product.nombre,
       price: product.precio,
-      img: product.imagen,   
-      stock: product.stock ,
-      author:product.autor,
-      binding:product.encuadernacion,
-      languaje:product.idioma    
-
-    }));
-    console.log(detail)
-    console.log(cart)
+      img: product.imagen,
+      stock: product.stock,
+      author: product.autor,
+      binding: product.encuadernacion,
+      languaje: product.idioma
+    });
+  
+    setCartEnabled(true); 
   };
 
   
@@ -525,9 +530,7 @@ const renderProducts = () => {
       <Container clas="cont-filter-list">
         <Container clas="cont-nav">
           <Title text="El Rincon del Libro" clas="title" />
-          <Link to={"/"}>
-            <Button clas="b-cancel" text="Cancelar compra" />
-          </Link>
+            <Button clas="b-cancel" text="Cancelar compra" click={()=>{returnRequire()}}/>
           <Link to={"/cart"}>
             <Button clas="b-complet" text="Completar compra" />
           </Link>
@@ -537,9 +540,9 @@ const renderProducts = () => {
             <Label text="Filtrar por" />
             <Label text="Nombre:" />
             <Field clas="field-filter" value={nameFilter} change={handleNameFilterChange} />
-            <Label text="Precio:" />
+            <Label text="Encuadernacion:" />
             <Selector clas="field-filter" value={bindingFilter} onChange={handleBindingFilterChange}>
-            <Option text="escija una opcion" value=""/>
+            <Option text="escoja una opcion" value=""/>
             <Option text="Tapa dura " value="Tapa dura"/>
             <Option text="Tapa blanda " value="Tapa blanda" />
             </Selector>
@@ -548,12 +551,13 @@ const renderProducts = () => {
           </Container>
         </Container>
         <Container clas="cont-list" >
+
           {renderProducts()}
         </Container>
       </Container>
       <Container clas="cont-detail">
         <Container clas="detail">
-          <Button text="Agregar al carrito" clas="b-car" click={()=>{addToCart(detail)}} />
+          <Button text="Agregar al carrito" clas="b-car" click={()=>{addToCart(detail)}} disabled={!cartEnabled} />
           <Text text="Nombre:" value={detail.name}/>
           <Image clas="i-detail" src={detail.img} />
           <Text text="Stock:" value={detail.stock} />

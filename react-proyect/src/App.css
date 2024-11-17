@@ -2,6 +2,9 @@
   text-align: center;
   height: auto;
   min-height: 90%;
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: normal;
 }
 
 
@@ -24,6 +27,9 @@
   padding: 10px;
   margin-right: 1px;
   background-color: white;
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: italic;
 }
 
 .cont-all{
@@ -116,16 +122,19 @@
 /* products list page styles  */
 .product-cont-all {
   background-color: #ba9f85;
-  height: 100vh; /* O una altura fija para que el scroll funcione correctamente */
+  height: 100vh; 
   width: 100%;
   display: flex;
   flex-direction: row;
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .cont-filter-list {
-  height: 100%; /* Asegura que ocupe toda la altura disponible */
+  height: 100%; 
   margin: 0;
-  width: 79%; /* Lo dejas como estaba */
+  width: 79%; 
 }
 
 .cont-nav {
@@ -168,10 +177,11 @@ border-style: none;
   flex: 0.8;
   padding: 5px;
   margin: 0;
-  height: 100%;  /* Cambié a 100% para que se ajuste al contenedor principal */
+  height: 100%;  
   position: fixed;
   top: 0;
   right: 1px;
+  width: 20%;
 }
 
 .cont-filter {
@@ -256,8 +266,8 @@ border-style: none;
   margin: 2px;
   padding-top: 10px;
   padding-bottom: 20px;
-  max-height: 500px;  /* Altura fija para activar el scroll */
-  overflow-y: auto;   /* Asegura que haya scroll vertical */
+  max-height: 500px;  
+  overflow-y: auto;   
   width: 100%;
 }
 
@@ -276,14 +286,27 @@ border-style: none;
 
 .i-product{
   align-self: center;
-  border: 2px solid red;
   width: 90%;
-  height: 20%;
+  height: 50%;
+}
+
+.d-product{
+  align-self: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2px;
+  height: 50%;
+  width: 90%;
+  margin-left: 5px;
+  font-family: "Merriweather", serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size:x-small;
 }
 
 .b-detail{
+  margin-left: 95px;
   align-self: flex-end;
-  margin-right: 10px;
   background-color: green;
 color: white;
 border-style: none;
@@ -293,9 +316,11 @@ border-style: none;
 }
 
 .cont-cart{
-  border:2px solid blue;
   height: auto;
   justify-items: left;
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .cont-header{
@@ -319,7 +344,6 @@ border-style: none;
 }
 
 .cont-table-summary{
-  border: 2px solid blue;
   margin: 10px;
   padding: 10px;
   width: 95%;
@@ -331,16 +355,16 @@ border-style: none;
 }
 
 .cont-table{
-  border: 2px solid yellow;
+  border: 2px solid black;
   flex: 3;
 
 }
 
 .cont-summary{
-  border: 2px solid orange;
   height: 200px;
   flex: 1;
   padding: 5px;
+  height: auto;
 }
 
 .summary{
@@ -352,7 +376,7 @@ border-style: none;
 }
 
 .cont-pay{
-  border: 2px solid purple;
+  border: 2px solid black;
   padding: 10px;
   height: auto;
   width: 30%;
@@ -368,7 +392,6 @@ border-style: none;
   flex-direction: row ;
   gap: 10px;
   justify-content: center;
-  border: 2px solid red;
   padding: 5px;
   margin: 5px;
   width: 90%;
