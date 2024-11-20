@@ -5,7 +5,7 @@ Tecnologia en sistemas de informacion grupo 711
 Desarrollo de interfacez web con react
 Docente Pablo Julian Salamanca Bernal
 Alumno Santiago Rodriguez Suarez
-Proyecto final de la materia de desarrollo de interfacez web con react
+Proyecto final de la materia de desarrollo de interfaces web con react
 
 Este proyecto aspira a fomentar la creatividad, la innovación y la resolución de problemas, al
 tiempo que ofrece una visión de los procesos de desarrollo de software y sus implicaciones en
