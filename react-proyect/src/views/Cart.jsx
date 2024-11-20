@@ -17,7 +17,6 @@ import { useNavigate } from 'react-router-dom'
 export default function Cart() {
 
   const { cart, removeFromCart,clearCart } = useCart()
-  // const {watch}=useFormContext()
   const { formData } = useFormData()
 
   let valueadded = 0;
@@ -29,10 +28,6 @@ export default function Cart() {
 
   const { setError, register, handleSubmit, formState: { errors }, reset } = useForm();
 
-  // const name = watch("name");
-  // const budget = watch("budget"); 
-  // const address = watch("address"); 
-  // const delivery = watch("delivery"); 
 
   const totalAmount = cart.reduce((total, product) => {
     return total + parseFloat(product.price);
@@ -44,7 +39,7 @@ export default function Cart() {
     }
 
     if(delivery != "1"){
-      setTotalPay(totalAmount );
+      setTotalPay(totalAmount);
     }
   }, [delivery, totalAmount]);
 
@@ -104,7 +99,7 @@ export default function Cart() {
                     <td>{product.languaje}</td>
                     <td>{product.binding}</td>
                     <td>{product.stock}</td>
-                    <td>${parseFloat(product.price).toFixed(2)}</td>
+                    <td>${parseFloat(product.price)}</td>
                     <td>
                       <Button text="Eliminar" clas="b-remove" click={() => removeFromCart(product.id)} />
                     </td>
@@ -126,7 +121,7 @@ export default function Cart() {
             <Text text="Productos seleccionados:" />
             <Text text={cart.length} />
             <Text text="Monto de compra:" />
-            <Text text={`$${totalAmount.toFixed(2)}`} />
+            <Text text={`$${totalAmount}`} />
             <Text text={delivery === "1" ? `Cargo de domicilio: $10000` : "No hay cargo de domicilio"} />
             <Text text="monto total"/>
             <Text text={totalpay}/>

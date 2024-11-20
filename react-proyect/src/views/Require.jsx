@@ -88,15 +88,14 @@ export default function Require() {
             {errors.address?.type === "required" && <span className="f-error">Este campo es obligatorio</span>}
 
             <Label logo={<FaShare color='5d2728'/>} clas="label-require" text="Tipo de entrega" />
-            <Selector clas="select-require" disable="Escoja una opcion" {...register("delivery", {
+            <Selector clas="select-require"  {...register("delivery", {
               required: true,
             })}>
               <Option value="" text="Selecciona un tipo de entrega" />
               <Option value="1" text="con domicilio" />
               <Option value="2" text="sin domicilio" />
             </Selector>
-            {errors.delivery?.type === "requires" && <p className="f-error">Este campo es obligatorio</p>}
-            {errors.delivery?.validate === "requires" && <p className="f-error">Este campo es obligatorio</p>}
+            {errors.delivery?.type === "required" && <p className="f-error">Este campo es obligatorio</p>}
             <Button text="Iniciar compra" clas="b-buy" type="submit" />
             <Button text="Limpiar campos" clas="b-clean" type="button" click={() => reset()} />
           </Form>
