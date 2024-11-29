@@ -25,7 +25,7 @@ export default function Require() {
       name: '',
       budget: "",
       address: '',
-      delivery: '0'
+      delivery: ''
     }
   });
 

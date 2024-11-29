@@ -48,7 +48,7 @@ export default function Productslist() {
       imagen: imagen2,
       autor: "Gabriel García Márquez",
       idioma: "español",
-      encuadernacion: "tapa blanda"
+      encuadernacion: "tapa dura"
     },
     {
       id: 3,
