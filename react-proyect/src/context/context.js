@@ -1,4 +1,3 @@
-// FormDataContext.js
 import React, { createContext, useContext, useState } from 'react';
 
 const FormDataContext = createContext();
@@ -12,7 +11,7 @@ export const FormDataProvider = ({ children }) => {
 
   const updateFormData = (data) => {
     setFormData(data);
-  };
+    };
 
   return (
     <FormDataContext.Provider value={{ formData, updateFormData }}>

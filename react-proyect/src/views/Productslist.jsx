@@ -556,6 +556,8 @@ export default function Productslist() {
       </Container>
       <Container clas="cont-detail">
         <Container clas="detail">
+          <Label text="carrito"/>
+          <Label text={cart.length}/>
           <Button text="Agregar al carrito" clas="b-car" click={() => { addToCart(detail) }} disabled={!cartEnabled} />
           <Text text="Nombre:" value={detail.name} />
           <Image clas="i-detail" src={detail.img} />

@@ -123,7 +123,7 @@ export default function Cart() {
             <Text text="Monto de compra:" />
             <Text text={`$${totalAmount}`} />
             <Text text={delivery === "1" ? `Cargo de domicilio: $10000` : "No hay cargo de domicilio"} />
-            <Text text="monto total"/>
+            <Text text="Monto total"/>
             <Text text={totalpay}/>
           </Container>
         </Container>
